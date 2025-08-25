@@ -226,3 +226,13 @@ nav .container .item-link a:hover {
 .banner-home .left-side .slider-banner .swiper-slide.swiper-slide-active {
     scale: 1;
 }
+
+.banner-home .left-side .slider-banner .swiper-slide .info-slide {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.banner-home .left-side .slider-banner .swiper-slide .info-slide .title {
+    color: var(--main-color-2);
+}

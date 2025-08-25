@@ -50,12 +50,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const swiperBanner = swiperBannerEle ?
         new Swiper(swiperBannerEle, {
             direction: 'vertical',
-            slidesPerView: 2,
+            slidesPerView: 3,
             centeredSlides: true,
-            spaceBetween: 0,
+            spaceBetween: 10,
             loop: true,
-            mousewheel: true,
+            // allowTouchMove: false,
             speed: 600,
+            autoplay: {
+                delay: 3000, // Delay between transitions in milliseconds
+                disableOnInteraction: false, // Continue autoplay after user interactions
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,

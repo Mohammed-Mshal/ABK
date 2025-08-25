@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+:root {
+    --main-color: #C8A977;
+    --main-color-2: #AF966E;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: "Aboreto", system-ui;
+    background: linear-gradient(275.36deg, #021532 23.8%, #000000 100.49%) no-repeat center center;
+    background-size: cover;
+    height: 500vh;
+}
+
+.GE_SS_Two {
+    font-family: 'GE SS Two', sans-serif;
+    font-weight: 300;
+
+}
+
+.container {
+    width: calc(100% - 40px);
+    max-width: 1800px;
+    margin-inline: auto;
+    padding: 20px 68px;
+}
+
+.wrapper-page {
+    min-height: 70dvh;
+    padding-top: 120px;
+}
+
+.custom-button {
+    padding: 8px 32px;
+    color: #FFF;
+    background: var(--main-color-2);
+    border-radius: 32px;
+    font-size: clamp(16px, 1.8vw, 18px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: .3s all ease-in-out;
+    cursor: pointer;
+    outline: none;
+}
+
+.custom-button:hover {
+    background: #5f523c;
+    box-shadow: 0 4px 16px 0 rgba(95, 82, 60, 0.35);
+}
+
+.custom-button-2 {
+    padding: 8px 32px;
+    color: var(--main-color);
+    border: 1px solid var(--main-color-2);
+    border-radius: 32px;
+    font-size: clamp(16px, 1.8vw, 18px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.custom-button-2:hover {
+    background: var(--main-color-2);
+    color: #FFF;
+    box-shadow: 0 4px 16px 0 rgba(95, 82, 60, 0.55);
+}
+
+@media (max-width:1024px) {
+    .custom-button {
+        padding: 8px 24px;
+        border-radius: 24px;
+    }
+}
+
+/* Navbar */
+
+nav {
+    position: fixed;
+    top: 23px;
+    width: 100%;
+    left: 50%;
+    translate: -50% 0;
+    transition: .3s all ease-in-out;
+
+}
+
+nav.scrolling {
+    top: 0;
+}
+
+nav .container {
+    background: rgba(2, 29, 73, 0.25);
+    backdrop-filter: blur(13.35px);
+    border-radius: 12px;
+    padding: 13px 68px;
+    transition: .3s all ease-in-out;
+}
+
+nav.scrolling .container {
+    top: 0;
+    padding: 13px 40px;
+}
+
+nav .container .right-side .language {
+    font-family: 'GE SS Two', sans-serif;
+    font-weight: 300;
+}
+
+.links-menu .item-link a,
+nav .container .item-link a {
+    transition: .3s all ease-in-out;
+}
+
+.links-menu .item-link a:hover,
+nav .container .item-link a:hover {
+    color: var(--main-color-2);
+}
+
+.links-menu {
+    display: flex;
+    z-index: 10;
+    background: rgba(0, 11, 29, 0.5);
+    backdrop-filter: blur(10px);
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+}
+
+@media (max-width:1500px) {
+    .container {
+        padding: 13px 32px;
+    }
+}
+
+@media (max-width:1350px) {
+
+    nav .container .logo-text,
+    nav .container .line {
+        display: none;
+    }
+}
+
+@media (max-width:1250px) {
+    nav .container .links {
+        display: none;
+    }
+
+    nav .container .toggle-menu {
+        display: flex;
+    }
+
+
+    .links-menu.show {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    body:has(.links-menu.show) {
+        overflow: hidden;
+    }
+}
+
+@media (max-width:778px) {
+    .container {
+        padding: 13px 20px;
+    }
+}
+
+@media (max-width:448px) {
+    nav .container .login {
+        display: none;
+    }
+
+    .links-menu .item-link:has(.login) {
+        display: flex;
+    }
+}
+
+.banner-home .left-side .presentation {
+    padding-block: 100px;
+}
+
+.banner-home .left-side .presentation .title {
+    font-size: clamp(24px, 3vw, 44px);
+}
+
+.banner-home .left-side .presentation .subtitle {
+    font-size: clamp(20px, 3vw, 34px);
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.banner-home .left-side .slider-banner {
+    width: 100%;
+    max-width: 350px;
+    margin-inline: 0 auto;
+    max-height: 320px;
+}
+
+.banner-home .left-side .slider-banner .swiper-slide {
+    background: rgba(137, 137, 137, .07);
+    border-radius: 10.8265px;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #ffffff79;
+    padding: 18px 21px;
+    display: flex;
+    gap: 21px;
+    scale: .9;
+    transition: .3s all ease-in-out;
+}
+
+.banner-home .left-side .slider-banner .swiper-slide.swiper-slide-active {
+    scale: 1;
+}

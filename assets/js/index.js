@@ -47,27 +47,49 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollY >= 20 ? nav.classList.add('scrolling') : nav.classList.remove('scrolling')
     })
     const swiperBannerEle = document.querySelector('.banner-home .left-side .slider-banner')
-    const swiperBanner = swiperBannerEle ?
-        new Swiper(swiperBannerEle, {
+    const swiperBgBannerEle = document.querySelector('.bg-banner-slide .swiper-banner-bg')
+    let swiperBanner = null;
+    let swiperBgBanner = null;
+
+    if (swiperBannerEle) {
+        swiperBanner = new Swiper(swiperBannerEle, {
             direction: 'vertical',
             slidesPerView: 3,
             centeredSlides: true,
-            spaceBetween: 10,
+            spaceBetween: 0,
             loop: true,
             // allowTouchMove: false,
             speed: 600,
-            autoplay: {
-                delay: 3000, // Delay between transitions in milliseconds
-                disableOnInteraction: false, // Continue autoplay after user interactions
-            },
             pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
+                el: '.swiper-pagination.swiper-pagination-banner',
+                clickable: false,
             },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-        })
-        : null
+            on: {
+                transitionEnd: function () {
+                    if (swiperBgBanner && typeof swiperBgBanner.slideToLoop === 'function') {
+                        swiperBgBanner.slideToLoop(this.realIndex);
+                    }
+                }
+            }
+        });
+    }
+
+    if (swiperBgBannerEle) {
+        swiperBgBanner = new Swiper(swiperBgBannerEle, {
+            slidesPerView: 1,
+            centeredSlides: true,
+            effect: 'fade',
+            on: {
+                slideChange: function () {
+                    if (swiperBanner && typeof swiperBanner.slideToLoop === 'function') {
+                        swiperBanner.slideToLoop(this.realIndex);
+                    }
+                }
+            }
+        });
+    }
 });

@@ -3,6 +3,7 @@
 :root {
     --main-color: #C8A977;
     --main-color-2: #AF966E;
+    --Calibri: 'Calibri'
 }
 
 * {
@@ -34,7 +35,6 @@ body {
 
 .wrapper-page {
     min-height: 70dvh;
-    padding-top: 120px;
 }
 
 .custom-button {
@@ -141,6 +141,8 @@ nav .container .item-link a:hover {
 }
 
 @media (max-width:1500px) {
+
+    nav .container,
     .container {
         padding: 13px 32px;
     }
@@ -175,6 +177,8 @@ nav .container .item-link a:hover {
 }
 
 @media (max-width:778px) {
+
+    nav .container,
     .container {
         padding: 13px 20px;
     }
@@ -188,6 +192,84 @@ nav .container .item-link a:hover {
     .links-menu .item-link:has(.login) {
         display: flex;
     }
+}
+
+.banner-home {
+    position: relative;
+    padding-block: 120px 60px;
+}
+
+.banner-home .left-side .container {
+    position: relative;
+}
+
+.banner-home .navigation,
+.banner-home .swiper-pagination {
+    position: absolute;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
+
+.banner-home .navigation {
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.banner-home .navigation .swiper-button-next,
+.banner-home .navigation .swiper-button-prev {
+    position: static;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    padding: 4px;
+    margin: 0;
+}
+
+.banner-home .navigation .swiper-button-next::after,
+.banner-home .navigation .swiper-button-prev::after {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: .3s all ease-in-out;
+}
+
+.banner-home .navigation .swiper-button-next:hover,
+.banner-home .navigation .swiper-button-prev:hover {
+    background: var(--main-color);
+    transition: .3s all ease-in-out;
+}
+
+.banner-home .navigation .swiper-button-next:hover:after,
+.banner-home .navigation .swiper-button-prev:hover:after {
+    color: white;
+}
+
+.banner-home .swiper-pagination .swiper-pagination-bullet {
+    background: var(--main-color);
+    display: flex;
+    width: 12px;
+    height: 12px;
+    transition: .3s all ease-in-out;
+}
+
+.banner-home .swiper-pagination .swiper-pagination-bullet-active {
+    border: 2px solid #021532;
+    width: 16px;
+    height: 16px;
+    outline: 2px solid var(--main-color);
 }
 
 .banner-home .left-side .presentation {
@@ -208,7 +290,7 @@ nav .container .item-link a:hover {
     width: 100%;
     max-width: 350px;
     margin-inline: 0 auto;
-    max-height: 320px;
+    max-height: 340px;
 }
 
 .banner-home .left-side .slider-banner .swiper-slide {
@@ -216,23 +298,138 @@ nav .container .item-link a:hover {
     border-radius: 10.8265px;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #ffffff79;
-    padding: 18px 21px;
+    padding: 12px 21px;
     display: flex;
+    justify-content: space-between;
     gap: 21px;
     scale: .9;
     transition: .3s all ease-in-out;
+    opacity: .5;
+    position: static;
+    z-index: 1;
 }
 
 .banner-home .left-side .slider-banner .swiper-slide.swiper-slide-active {
+    opacity: 1;
     scale: 1;
 }
 
 .banner-home .left-side .slider-banner .swiper-slide .info-slide {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .banner-home .left-side .slider-banner .swiper-slide .info-slide .title {
     color: var(--main-color-2);
+    font-size: var(17px, 1.8vw, 18px);
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.banner-home .left-side .slider-banner .swiper-slide .info-slide .description {
+    color: #FFF;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+
+.banner-home .left-side .slider-banner .swiper-slide .info-slide .description span {
+    font-family: "Aboreto", system-ui;
+}
+
+.bg-banner-slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.bg-banner-slide .swiper {
+    height: 100%;
+    width: 100%;
+}
+
+.bg-banner-slide .swiper-slide {
+    opacity: 0 !important;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.bg-banner-slide .swiper-slide.swiper-slide-fully-visible {
+    opacity: 1 !important;
+}
+
+.bg-banner-slide .swiper-slide img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+@media (max-width:992px) {
+    .bg-banner-slide .swiper-slide {
+        height: 800px;
+    }
+
+    .bg-banner-slide .swiper-slide.swiper-slide-fully-visible {
+        opacity: .4 !important;
+    }
+
+    .bg-banner-slide .swiper-slide img {
+        object-position: 80% center;
+    }
+
+
+
+}
+
+@media (max-width:668px) {
+    .banner-home .swiper-pagination {
+        right: 20px;
+    }
+
+    .banner-home .navigation {
+        right: auto;
+        left: 50%;
+        translate: -50% 0;
+        }
+}
+
+
+.services {
+    margin-block: 60px;
+}
+
+.services .container {}
+
+.services .container .custom-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.services .container .custom-header .title {
+    color: var(--main-color);
+    font-size: clamp(26px, 4vw, 51px);
+    margin: 0;
+}
+
+.services .container .custom-header .subtitle {
+    color: white;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 300;
 }

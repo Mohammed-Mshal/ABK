@@ -86,6 +86,25 @@ body {
     }
 }
 
+.custom-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+}
+
+.custom-header .title {
+    color: var(--main-color);
+    font-size: clamp(26px, 4vw, 51px);
+    margin: 0;
+}
+
+.custom-header .subtitle {
+    color: white;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 300;
+}
+
 /* Navbar */
 
 nav {
@@ -95,6 +114,7 @@ nav {
     left: 50%;
     translate: -50% 0;
     transition: .3s all ease-in-out;
+    z-index: 10;
 
 }
 
@@ -104,7 +124,7 @@ nav.scrolling {
 
 nav .container {
     background: rgba(2, 29, 73, 0.25);
-    backdrop-filter: blur(13.35px);
+    backdrop-filter: blur(16.35px);
     border-radius: 12px;
     padding: 13px 68px;
     transition: .3s all ease-in-out;
@@ -214,7 +234,7 @@ nav .container .item-link a:hover {
 }
 
 .banner-home .navigation {
-    bottom: 0;
+    bottom: 80px;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -380,8 +400,8 @@ nav .container .item-link a:hover {
 }
 
 @media (max-width:992px) {
-    .bg-banner-slide .swiper-slide {
-        height: 800px;
+    .banner-home {
+        padding-block: 60px;
     }
 
     .bg-banner-slide .swiper-slide.swiper-slide-fully-visible {
@@ -392,6 +412,9 @@ nav .container .item-link a:hover {
         object-position: 80% center;
     }
 
+    .banner-home .left-side .presentation {
+        padding-block: 40px;
+    }
 
 
 }
@@ -405,31 +428,133 @@ nav .container .item-link a:hover {
         right: auto;
         left: 50%;
         translate: -50% 0;
-        }
+        bottom: 10px;
+    }
 }
 
 
 .services {
-    margin-block: 60px;
+    margin-block: 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.services .container {}
+.services .bg-services {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: -1;
+    padding-block: 40px;
 
-.services .container .custom-header {
+}
+
+.services .bg-services img {
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0) 99.04%, #000000 100%), linear-gradient(0deg, rgba(200, 169, 119, 0.2), rgba(200, 169, 119, 0));
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-blend-mode: normal, color, normal, normal, normal;
+    mix-blend-mode: lighten;
+    opacity: 0.36;
+}
+
+.services .container {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    gap: 15px;
+    gap: 60px;
+    padding-block: 200px;
 }
 
-.services .container .custom-header .title {
-    color: var(--main-color);
-    font-size: clamp(26px, 4vw, 51px);
-    margin: 0;
+
+.services .container .list-services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
 }
 
-.services .container .custom-header .subtitle {
+.services .container .list-services .service {
+    padding: 34px 30px 27px;
+    background: rgba(200, 169, 119, 0.22);
+    border-radius: 15.625px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    max-width: 360px;
+}
+
+.services .container .list-services .service .icon {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    margin-bottom: 19px;
+}
+
+.services .container .list-services .service .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.services .container .list-services .service .title-service {
+    font-size: clamp(20px, 2.2vw, 28.41px);
     color: white;
-    font-size: clamp(20px, 2vw, 24px);
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.services .container .list-services .service .description-service {
+    font-size: clamp(16px, 2vw, 20px);
+    color: white;
     font-weight: 300;
+    margin-bottom: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+.funds .container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.funds .container .list-funds {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 64px;
+}
+
+.funds .container .list-funds .funds {
+    padding: 34px 30px 27px;
+    border-radius: 15.625px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    max-width: 260px;
+    min-width: 260px;
+    background: rgba(18, 18, 18, 0.01);
+    border: 0.5px solid #AF966E;
+    backdrop-filter: blur(20.25px);
+    border-radius: 17px;
+
+}
+.funds .container .list-funds .funds .title-funds {
+    font-size: clamp(20px, 2.2vw, 28.41px);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 32px;
+    padding-inline-end: 30px;
 }

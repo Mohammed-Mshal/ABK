@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 clickable: false,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.banner-home .swiper-button-next',
+                prevEl: '.banner-home .swiper-button-prev',
             },
             on: {
                 transitionEnd: function () {
@@ -91,5 +91,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+    }
+
+
+    const sliderMarketEle = document.querySelector('.market-insights .slider-market')
+    if (sliderMarketEle) {
+        const marketWrapper = sliderMarketEle.querySelector('.swiper-wrapper')
+        if (marketWrapper && typeof gsap !== 'undefined') {
+            gsap.set(marketWrapper, { x: 120 })
+        }
+        const _sliderMarket = new Swiper(sliderMarketEle, {
+            rewind: true,
+            spaceBetween: 21,
+            navigation: {
+                nextEl: '.market-insights .swiper-button-next',
+                prevEl: '.market-insights .swiper-button-prev',
+            },
+            breakpoints: {
+                300: {
+                    slidesPerView: 1,
+                },
+                992: {
+                    slidesPerView: 'auto',
+                }
+            }
+        })
+    }
+    const sliderNewsEle = document.querySelector('.latest-news .slider-news')
+    if (sliderNewsEle) {
+        const newsWrapper = sliderNewsEle.querySelector('.swiper-wrapper')
+        if (newsWrapper && typeof gsap !== 'undefined') {
+            gsap.set(newsWrapper, { x: 120 })
+        }
+        const _sliderNews = new Swiper(sliderNewsEle, {
+            rewind: true,
+            spaceBetween: 21,
+            navigation: {
+                nextEl: '.latest-news .swiper-button-next',
+                prevEl: '.latest-news .swiper-button-prev',
+            },
+            breakpoints: {
+                300: {
+                    slidesPerView: 1,
+                },
+                668: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 'auto',
+                }
+            },
+        })
     }
 });

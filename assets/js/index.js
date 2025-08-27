@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (sliderMarketEle) {
         const marketWrapper = sliderMarketEle.querySelector('.swiper-wrapper')
         if (marketWrapper && typeof gsap !== 'undefined') {
-            gsap.set(marketWrapper, { x: 120 })
+            gsap.set(marketWrapper, { x: window.innerWidth > 800 ? 120 : 0  })
         }
         const _sliderMarket = new Swiper(sliderMarketEle, {
             rewind: true,
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (sliderNewsEle) {
         const newsWrapper = sliderNewsEle.querySelector('.swiper-wrapper')
         if (newsWrapper && typeof gsap !== 'undefined') {
-            gsap.set(newsWrapper, { x: 120 })
+            gsap.set(newsWrapper, { x: window.innerWidth > 800 ? 120 : 0 })
         }
         const _sliderNews = new Swiper(sliderNewsEle, {
             rewind: true,
